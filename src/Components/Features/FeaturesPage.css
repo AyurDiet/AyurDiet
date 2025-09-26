@@ -1,0 +1,171 @@
+/* Background */
+.masonry-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 3rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Title */
+.features-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2e7d32;
+  text-align: center;
+  margin: 1rem 0 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Grid layout */
+.masonry-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Card base */
+.masonry-flow-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;               /* for fade-in animation */
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Hover effect */
+.masonry-flow-card:hover {
+  transform: translateY(-6px) scale(1.07) !important;
+  box-shadow: 0 16px 36px rgba(67, 160, 71, 0.35); /* stronger shadow */
+}
+
+/* Hover shine overlay */
+.masonry-flow-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.masonry-flow-card:hover::after {
+  animation: shineSweep 0.9s forwards;
+}
+
+/* Icon & text */
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+.masonry-flow-card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #388e3c;
+  margin-bottom: 0.4rem;
+}
+.masonry-flow-card p {
+  font-size: 0.95rem;
+  color: #4e6b50;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Back button wrapper */
+.back-btn-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 2rem; /* Ensures it sits at bottom naturally */
+}
+
+/* Back button */
+.features-home-btn {
+  display: inline-block;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Button shine */
+.features-home-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.features-home-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(46, 125, 50, 0.45);
+}
+.features-home-btn:hover::after {
+  animation: shineSweep 0.9s forwards;
+}
+
+
+/* Animations */
+@keyframes shineSweep {
+  from { left: -100%; }
+  to { left: 160%; }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-title {
+    font-size: 1.8rem;
+  }
+  .masonry-flow-card {
+    padding: 1rem;
+  }
+  .features-home-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
