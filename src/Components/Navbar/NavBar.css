@@ -2,19 +2,26 @@
   height: 65px;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, #43A047 80%, #FFD700 100%);
+  /* background: linear-gradient(90deg, #43A047 80%, #FFD700 100%); */
+  background: #869d7a82;
+  backdrop-filter: blur(10px);
   padding: 0 2.5rem;
   box-shadow: 0 2px 12px rgba(76,175,80,0.07);
 }
 .nav-logo {
   font-size: 2rem;
   font-weight: 700;
-  color: #FFD700;
+  color: #ffd900;
+  text-shadow: grey 6px 4px 4px;
   margin-right: auto;
   letter-spacing: .5px;
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 .nav-links a {
-  color: #fff;
+  /* color: #fff; */
+color: #000;
   margin-left: 2rem;
   text-decoration: none;
   font-weight: 500;

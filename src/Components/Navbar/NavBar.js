@@ -7,8 +7,8 @@ function NavBar() {
 		<nav className="navbar">
 			<div className="nav-logo">AyurDiet</div>
 			<div className="nav-links">
-				<Link to="/">Home</Link>
 				<Link to="/features">Features</Link>
+				<Link to="/explore">Explore</Link>
 				<Link to="/contact">Contact</Link>
 			</div>
 		</nav>
