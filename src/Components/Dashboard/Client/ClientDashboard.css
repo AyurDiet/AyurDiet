@@ -5,14 +5,14 @@
 	flex-direction: row;
 	align-items: stretch;
 	justify-content: center;
-	background-color: #f6f7fb;
+	/* background-color: #f6f7fb; */
 	font-family: "Mulish", sans-serif;
 }
 
 .client-dashboard-cont {
 	display: flex;
 	min-height: 100vh;
-	background: #f6f7fb;
+	/* background: #f6f7fb; */
 	font-family: "Mulish", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
@@ -28,9 +28,28 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 32px 0 24px 0;
-	min-height: 100vh;
 	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07);
+
+
+	position: fixed;
+  left: 0;
+  top: 0;
+  width: 20vw;                  /* or a fixed px value */
+  height: 100vh;                /* full viewport height */
+  background: #23272f;
+  color: #f6f7fb;
+  overflow-y: hidden;           /* prevent scroll by default */
+  z-index: 100;   
 }
+
+/* Enable vertical scrolling ONLY on hover */
+.left-sidebar:hover {
+  overflow-y: auto;
+}
+
+/* Optional: Hide scrollbar for aesthetics */
+.left-sidebar::-webkit-scrollbar { display: none; }
+.left-sidebar { scrollbar-width: none; }
 
 .left-sidebar .wb {
 	font-size: 1.35rem;
@@ -157,113 +176,104 @@
 }
 
 .right-sidebar {
-	width: 80vw;
+	width: 75vw;
 	height: 100vh;
-	flex: 1;
 	background: #fff;
 	border-radius: 15px;
 	margin: 36px 28px;
 	box-shadow: 0 10px 40px rgba(50, 50, 130, 0.1);
 	overflow-y: auto;
+	margin-left: 20vw;
 	display: grid;
-  gap: 15px 15px;
-  grid-template-columns: 2fr 1.1fr 1.1fr 1.1fr;
-  grid-template-rows: 0.82fr 1fr 0.93fr 0.7fr;
-  grid-template-areas:
-    "nutrient-plan nutrient-plan nutrient-plan nutrient-plan"
-    "upcoming-meal upcoming-meal nutriant-ranges nutriant-ranges"
-    "snacks streak contact contact"
-    "snacks streak contact contact";
+	gap: 18px;
+	grid-template-columns: 1.5fr 1fr 1fr;
+	grid-template-rows: 1fr 0.93fr 0.93fr 0.93fr;
+	grid-template-areas:
+		"nutrient-plan nutrient-plan nutrient-plan"
+		"upcoming-meal nutriant-ranges nutriant-ranges"
+		"snacks dashboard-cards dashboard-cards"
+		"snacks dashboard-cards dashboard-cards";
 }
 
+/* Grid area assignment */
 .nutrient-plan {
 	grid-area: nutrient-plan;
-	background: #f7f2ff;
-	border-radius: 15px;
 }
 .upcoming-meal {
 	grid-area: upcoming-meal;
-	background: #eaf4fb;
-	border-radius: 15px;
 }
 .nutriant-ranges {
 	grid-area: nutriant-ranges;
-	background: #e7fbee;
-	border-radius: 15px;
 }
 .snacks {
 	grid-area: snacks;
-	background: #fffbe7;
-	border-radius: 15px;
 }
-.streak {
-	grid-area: streak;
-	background: #23272f;
-	border-radius: 15px;
-}
-.contact {
-	grid-area: contact;
-	background: #196654;
-	border-radius: 15px;
-	color: #fff;
+.dashboard-cards {
+	grid-area: dashboard-cards;
 }
 
-.snacks {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(32,40,60,0.13);
-  border: none;
-  padding: 24px 22px;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.streak, .contact {
-  background: #23272f;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(32,40,60,0.13);
-  border: none;
-  padding: 18px 17px;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.contact {
-  background: #196654;
-  color: #fff;
-}
-
-.snacks {
-  background: #fffbe7;
-}
-
-/* Optionally: add subtle border for Snacks */
-.snacks {
-  border: 1px solid #f5e9c8;
-}
-
-
-/* Example sizing and box pretties for demo */
+/* Each card styling */
 .nutrient-plan,
 .upcoming-meal,
 .nutriant-ranges,
 .snacks,
-.streak,
-.contact {
-	padding: 16px 18px;
-	min-height: 0; /* Makes grid cell have correct size when content is small */
+.dashboard-cards {
+	border-radius: 18px;
+	box-shadow: 0 4px 24px rgba(32, 40, 60, 0.11);
+	padding: 22px 19px;
 	min-width: 0;
-	box-shadow: 0 2px 8px #1218220d;
+	min-height: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	background: #fbfbfe;
+}
+
+.nutrient-plan {
+	background: #efeafd;
+}
+.upcoming-meal {
+	background: #eaf4fb;
+}
+.nutriant-ranges {
+	background: #e7fbee;
+}
+.snacks {
+	background: #fffbe7;
+}
+
+/* Dashboard cards inner grid for Streak and Contact */
+.dashboard-cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 18px;
+	padding: 0;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+/* Card styles for streak & contact */
+.streak,
+.contact {
+	border-radius: 18px;
+	box-shadow: 0 4px 16px rgba(32, 40, 60, 0.13);
+	padding: 22px 19px;
+	min-width: 0;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.streak {
+	background: #23272f;
+	color: #fff;
+}
+.contact {
+	background: #196654;
+	color: #fff;
 }
 
 @media (max-width: 900px) {
@@ -420,4 +430,79 @@
 		font-size: 0.95rem;
 		padding: 0.18rem 0.9rem;
 	}
+}
+
+.contact {
+	background: #196654;
+	color: #fff;
+	border-radius: 16px;
+	box-shadow: 0 3px 16px rgba(32, 40, 60, 0.09);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 26px 18px 18px 18px;
+	min-width: 0;
+	min-height: 0;
+	text-align: center;
+	position: relative;
+}
+
+.contact-icon {
+	margin-bottom: 4px;
+	padding: 4px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact h3 {
+	font-size: 1.19rem;
+	font-weight: 700;
+	margin-bottom: 8px;
+	letter-spacing: 1px;
+}
+
+.contact-text {
+	color: #eaf4fb;
+	font-size: 1rem;
+	margin-bottom: 12px;
+}
+
+.contact-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	color: #196654;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 1.09rem;
+	padding: 11px 25px;
+	margin-bottom: 12px;
+	box-shadow: 0 2px 8px rgba(32, 40, 60, 0.1);
+	text-decoration: none;
+	border: none;
+	outline: none;
+	transition: background 0.12s, color 0.12s;
+	cursor: pointer;
+}
+.contact-btn:hover,
+.contact-btn:focus {
+	background: #43e2ae;
+	color: #fff;
+}
+
+.contact-link {
+	display: inline-block;
+	margin-top: 3px;
+	color: #43e2ae;
+	font-size: 0.98rem;
+	text-decoration: underline;
+	transition: color 0.13s;
+}
+.contact-link:hover {
+	color: #fff;
 }

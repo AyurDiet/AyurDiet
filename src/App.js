@@ -8,6 +8,7 @@ import ContactPage from "./Components/Contact/ContactPage";
 import LoginPage from "./Components/Login/LoginPage";
 import RegisterPage from "./Components/Register/RegisterPage";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import ExplorePage from "./Components/Explore/ExplorePage";
 // import other pages here
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/explore" element={<ExplorePage />} />
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</Router>

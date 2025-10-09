@@ -1,0 +1,159 @@
+/* === Base background === */
+.ae‑bg {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e9fcf3 20%, #ddeefb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* === The card container === */
+.ae‑card {
+  width: 100%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(34, 133, 85, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ae‑card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(34, 133, 85, 0.25);
+}
+
+/* === Image container with overlay title and nav arrows === */
+.ae‑imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #f0faf4;
+}
+
+.ae‑image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ae‑imageContainer:hover .ae‑image {
+  transform: scale(1.03);
+}
+
+/* Title overlay at bottom of image */
+.ae‑titleOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+}
+
+.ae‑titleText {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Navigation arrows overlayed on image sides */
+.ae‑navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.75);
+  border: none;
+  color: #159964;
+  font-size: 2.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ae‑navArrow:hover:not(:disabled) {
+  background: rgba(255,255,255,1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.ae‑navArrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ae‑navLeft {
+  left: 1rem;
+}
+
+.ae‑navRight {
+  right: 1rem;
+}
+
+/* === Content area === */
+.ae‑content {
+  padding: 1.8rem 2rem;
+}
+
+.ae‑desc {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #26493c;
+  line-height: 1.6;
+}
+
+/* === Actions section === */
+.ae‑actions {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ae‑homeBtn {
+  background: linear-gradient(102deg, #65b893 18%, #228555 85%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(34, 133, 85, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.ae‑homeBtn:hover {
+  background: linear-gradient(92deg, #228555 15%, #dc8e26 85%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 768px) {
+  .ae‑titleText {
+    font-size: 1.5rem;
+  }
+  .ae‑homeBtn {
+    font-size: 1rem;
+    padding: 0.6rem 2rem;
+  }
+  .ae‑navArrow {
+    font-size: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .ae‑content {
+    padding: 1.4rem 1.5rem;
+  }
+}
