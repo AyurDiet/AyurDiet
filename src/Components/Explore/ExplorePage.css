@@ -2,7 +2,11 @@
 .ae‑bg {
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e9fcf3 20%, #ddeefb 100%);
+  background-image: url("explorebg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,10 +17,10 @@
 /* === The card container === */
 .ae‑card {
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(34, 133, 85, 0.15);
+  box-shadow: 0 20px 60px rgba(21, 21, 21, 0.712);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -54,7 +58,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.589);
   color: #fff;
   padding: 0.8rem 1.2rem;
 }
@@ -156,4 +160,22 @@
   .ae‑content {
     padding: 1.4rem 1.5rem;
   }
+}
+
+
+.aecontent,
+.aetitleOverlay,
+.aeimageContainer,
+.aecard {
+  transition: opacity 0.44s cubic-bezier(.41,1.1,.32,.99), transform 0.38s cubic-bezier(.41,1.1,.32,.99);
+}
+.aecard-content-fade {
+  opacity: 0;
+  transform: translateY(24px) scale(.98);
+  pointer-events: none;
+}
+.aecard-content-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
 }
